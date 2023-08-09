@@ -1,10 +1,21 @@
 import ctl from "@netlify/classnames-template-literals";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import useToggle from "../hooks/useToggle";
 import { Slide } from "@chakra-ui/react";
 import { motion } from "framer-motion";
+import { useEffect } from "react";
+
 export default function NavBar() {
   const [active, setActive] = useToggle();
+  const { pathname } = useLocation();
+
+  pathname === "/"
+    ? document.body.classList.add("overflow-hidden")
+    : document.body.classList.remove("overflow-hidden");
+
+  useEffect(() => {
+    setActive(false);
+  }, [pathname]);
 
   return (
     <>
@@ -13,7 +24,7 @@ export default function NavBar() {
     </>
   );
 }
-
+// ---------
 const Header = (props) => {
   const setActive = props.setActive;
 
@@ -36,6 +47,7 @@ const Header = (props) => {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
+        <span></span>
         <NavLink to="/" className="justify-self-center w-fit">
           <img src="logo.svg" alt="" className="w-[16rem] max-w-full" />
         </NavLink>
@@ -43,9 +55,8 @@ const Header = (props) => {
           onClick={() => setActive((prev) => !prev)}
           className="w-fit justify-self-end"
         >
-          menu
+          MENU
         </button>
-        <span className="order-first"></span>
       </nav>
     </header>
   );
@@ -56,30 +67,21 @@ const NavLinksMenu = (props) => {
   const active = props.active;
 
   const navlinks = [
-    { url: "", name: "link" },
-    { url: "", name: "link" },
-    { url: "", name: "link" },
+    { url: "/", name: "Protfolio" },
+    { url: "/about-us", name: "About Us" },
+    { url: "/contact", name: "Contact Us" },
   ];
 
   // -----style classes
   const styles = {
-    slide_wrapper: ctl(`
-    h-screen
-    w-screen
-    fixed
-    inset-0
-    transition-all 
-    delay-150
-    ${active ? "z-[99]" : "-z-10 !delay-1000"}  
-  `),
     slide: ctl(`
-    !-z-10
+    !z-10
     !h-full
-    !bg-gray-400
+    !bg-[#eeeded]
     transition-all
     ease-linear
-    delay-0 
-    duration-150
+    delay-0
+    duration-300
     ${!active && "!delay-700"}
   `),
     menu_wrapper: ctl(`
@@ -90,40 +92,61 @@ const NavLinksMenu = (props) => {
     mx-auto
     flex-col
   `),
+    link: ctl(`
+  
+  `),
   };
 
+  //------- framer varinats
   const variant = {
-    init: {
-      y: 30,
+    parent: {
+      init: {
+        opacity: 0,
+      },
+      animate: {
+        opacity: active && 1,
+        transition: {
+          delay: active ? 0.6 : 0,
+          when: "beforeChildren",
+        },
+      },
     },
-    animate: {
-      y: active ? 0 : 30,
-      opacity: active ? 1 : 0,
+
+    link: {
+      init: {
+        y: 30,
+      },
+      animate: (i) => ({
+        y: active ? 0 : 30,
+        opacity: active ? 1 : 0,
+        transition: {
+          delay: 0.19 * i,
+          duration: 0.8,
+        },
+      }),
     },
   };
 
   return (
-    <div className={styles.slide_wrapper}>
-      <Slide direction="bottom" in={active} className={styles.slide}></Slide>
-      {/* links */}
+    <Slide direction="bottom" in={active} className={styles.slide}>
+      {" "}
       <div className={styles.menu_wrapper}>
         {navlinks.map(({ url, name }, i) => (
-          <div className="overflow-y-hidden w-fit" key={i}>
-            <motion.div
-              variants={variant}
-              initial="init"
-              animate="animate"
-              transition={{
-                delay: !active ? 0.19 * i : 0.6,
-                duration: 0.8,
-              }}
-            >
-              <NavLink className={styles.link}>{name}</NavLink>
+          <motion.div
+            variants={variant.parent}
+            initial="init"
+            animate="animate"
+            className="overflow-y-hidden w-fit"
+            key={i}
+          >
+            <motion.div custom={i} variants={variant.link}>
+              <NavLink to={url} className={styles.link}>
+                {name}
+              </NavLink>
             </motion.div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </Slide>
   );
 };
-
