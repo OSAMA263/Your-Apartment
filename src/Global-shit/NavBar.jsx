@@ -4,44 +4,57 @@ import useToggle from "../hooks/useToggle";
 import { Slide } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
+import * as LinkStyled from "../Global-shit/LinesUnderLink";
 
 export default function NavBar() {
-  const [active, setActive] = useToggle();
+  const [isOpen, setIsOpen] = useToggle();
   const { pathname } = useLocation();
 
+  //  HIDE SCROLL BAR
   pathname === "/"
     ? document.body.classList.add("overflow-hidden")
     : document.body.classList.remove("overflow-hidden");
 
+  //  CLOSE NAVLINK SLIDER
   useEffect(() => {
-    setActive(false);
+    setIsOpen(false);
   }, [pathname]);
 
   return (
     <>
-      <Header setActive={setActive} />
-      <NavLinksMenu active={active} />
+      <Header {...{ isOpen, setIsOpen }} />
+      <NavLinksMenu isOpen={isOpen} />
     </>
   );
 }
 // ---------
-const Header = (props) => {
-  const setActive = props.setActive;
-
+const Header = ({ setIsOpen, isOpen }) => {
   const styles = {
     header: ctl(`
-  fixed
-  bg-white
-  py-8
-  w-full
-  z-[6969]
-`),
+    fixed
+    top-0
+    bg-white
+    py-8
+    w-full
+    z-[6969]
+  `),
     nav: ctl(`
-  w-[90%]
-  mx-auto
-  grid
-  grid-cols-3
-`),
+    w-[90%]
+    mx-auto
+    grid
+    grid-cols-3
+  `),
+    menu_plus_sign: ctl(`
+    absolute
+    top-0
+    -right-4
+    transition-all
+    duration-700
+    rotate-0 ml-4
+    font-extrabold
+    text-lg
+    ${isOpen && "!rotate-45 !top-2"}
+    `),
   };
 
   return (
@@ -49,13 +62,14 @@ const Header = (props) => {
       <nav className={styles.nav}>
         <span></span>
         <NavLink to="/" className="justify-self-center w-fit">
-          <img src="logo.svg" alt="" className="w-[16rem] max-w-full" />
+          <img src="logo.svg" alt="" className="w-[14rem]" />
         </NavLink>
         <button
-          onClick={() => setActive((prev) => !prev)}
-          className="w-fit justify-self-end"
+          onClick={() => setIsOpen((prev) => !prev)}
+          className={`${LinkStyled.Class} justify-self-end relative`}
         >
-          MENU
+          MENU <small className={styles.menu_plus_sign}>+</small>
+          <LinkStyled.Lines />
         </button>
       </nav>
     </header>
@@ -64,7 +78,7 @@ const Header = (props) => {
 
 // nav links slider
 const NavLinksMenu = (props) => {
-  const active = props.active;
+  const isOpen = props.isOpen;
 
   const navlinks = [
     { url: "/", name: "Protfolio" },
@@ -82,7 +96,7 @@ const NavLinksMenu = (props) => {
     ease-linear
     delay-0
     duration-300
-    ${!active && "!delay-700"}
+    ${!isOpen && "!delay-700"}
   `),
     menu_wrapper: ctl(`
     flex
@@ -91,9 +105,7 @@ const NavLinksMenu = (props) => {
     w-[80%]
     mx-auto
     flex-col
-  `),
-    link: ctl(`
-  
+    space-y-8
   `),
   };
 
@@ -104,9 +116,9 @@ const NavLinksMenu = (props) => {
         opacity: 0,
       },
       animate: {
-        opacity: active && 1,
+        opacity: isOpen && 1,
         transition: {
-          delay: active ? 0.6 : 0,
+          delay: isOpen ? 0.7 : 0,
           when: "beforeChildren",
         },
       },
@@ -117,10 +129,9 @@ const NavLinksMenu = (props) => {
         y: 30,
       },
       animate: (i) => ({
-        y: active ? 0 : 30,
-        opacity: active ? 1 : 0,
+        y: isOpen ? 0 : 70,
         transition: {
-          delay: 0.19 * i,
+          delay: 0.22 * i,
           duration: 0.8,
         },
       }),
@@ -128,20 +139,22 @@ const NavLinksMenu = (props) => {
   };
 
   return (
-    <Slide direction="bottom" in={active} className={styles.slide}>
+    <Slide direction="bottom" in={isOpen} className={styles.slide}>
       {" "}
       <div className={styles.menu_wrapper}>
         {navlinks.map(({ url, name }, i) => (
+          // OVERFLOW LINK WRAPPER
           <motion.div
             variants={variant.parent}
             initial="init"
             animate="animate"
-            className="overflow-y-hidden w-fit"
+            className="overflow-y-hidden w-fit py-2"
             key={i}
           >
+            {/* LINKS DIV */}
             <motion.div custom={i} variants={variant.link}>
-              <NavLink to={url} className={styles.link}>
-                {name}
+              <NavLink to={url} className={LinkStyled.Class + " text-6xl"}>
+                {name} <LinkStyled.Lines />
               </NavLink>
             </motion.div>
           </motion.div>

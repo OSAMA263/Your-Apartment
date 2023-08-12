@@ -1,6 +1,5 @@
 import ctl from "@netlify/classnames-template-literals";
-import { NavLink } from "react-router-dom";
-import LinkUnderLine from "../../Global-shit/LinkUnderLine";
+import GetInTouch from "../../Global-shit/GetInTouch";
 
 export default function Sections() {
   return (
@@ -48,24 +47,6 @@ const Section2 = () => (
     </section>
   </div>
 );
-
-const GetInTouch = () => {
-  return (
-    <div className="w-[45%]">
-      <div className="flex md:flex-col text-4xl">
-        <NavLink to="/contact" className={styles.link}>
-          Get in touch
-          <LinkUnderLine />
-        </NavLink>
-        <span className="flex items-center">
-          <small className="inline-block h-[1px] w-4 bg-black me-2"></small>
-          Let’s start a
-        </span>
-        <span>journey together</span>
-      </div>
-    </div>
-  );
-};
 
 const data = {
   section2: {
@@ -125,11 +106,5 @@ const styles = {
   flex
   items-center
   bg-white
-`),
-  link: ctl(`
-  relative 
-  w-fit 
-  [&>span]:hover:left-0 
-  [&>span]:hover:w-full
 `),
 };

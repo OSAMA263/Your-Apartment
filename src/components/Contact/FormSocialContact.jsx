@@ -1,22 +1,10 @@
-import { FormControl, Input, FormLabel } from "@chakra-ui/react";
+import { FormControl, FormLabel, Button } from "@chakra-ui/react";
 import ctl from "@netlify/classnames-template-literals";
+import { NavLink } from "react-router-dom";
+import * as LinkStyled from "../../Global-shit/LinesUnderLink";
 
 export default function FormSocialContact() {
-  const cls = ctl(`
-  md:container 
-  h-[100dvh]
-  mx-auto 
-  items-center 
-  justify-around 
-  flex
-  `);
-
-  return (
-    <div className={cls}>
-      <SocialContact />
-      <Form />
-    </div>
-  );
+  return <Form />;
 }
 
 const Form = () => {
@@ -32,9 +20,9 @@ const Form = () => {
   border-[1px]
   border-black
   p-3
-  opacity-25
-  hover:opacity-100
-  focus:opacity-100
+  border-opacity-25
+  hover:border-opacity-100
+  focus:border-opacity-100
   transition-all
   duration-700
   `),
@@ -58,7 +46,7 @@ const Form = () => {
 
   return (
     <>
-      <form className="w-[45%] space-y-8">
+      <form className="space-y-8">
         {inputs.map(({ name_id, label, type }, i) => (
           <FormControl className="flex flex-col" key={i}>
             <FormLabel htmlFor={name_id}>{label}</FormLabel>
@@ -79,26 +67,16 @@ const Form = () => {
             rows="4"
           ></textarea>
         </FormControl>
+        {/* PRIVACY LINK */}
         <small className="block">
-          By submitting this form I accept the Privacy Policy of this site.
+          By submitting this form I accept the
+          <NavLink to="/privacy-policy" className={`ml-1 ${LinkStyled.Class}`}>
+            Privacy Policy <LinkStyled.Lines />
+          </NavLink>
+          of this site.
         </small>
-        <button className={styles.submit_btn}>Submit</button>
+        <Button className={styles.submit_btn}>Submit</Button>
       </form>
     </>
-  );
-};
-
-const SocialContact = () => {
-  return (
-    <div className="w-[45%]">
-      <div className="flex md:flex-col text-4xl">
-        <span>Get in touch</span>
-        <span className="flex items-center">
-          <small className="inline-block h-[1px] w-4 bg-black me-2"></small>
-          Let’s start a
-        </span>
-        <span>journey together</span>
-      </div>
-    </div>
   );
 };
