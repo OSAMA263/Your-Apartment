@@ -34,9 +34,10 @@ const Header = ({ setIsOpen, isOpen }) => {
     fixed
     top-0
     bg-white
-    py-8
+    py-4
     w-full
     z-[6969]
+    px-4
   `),
     nav: ctl(`
     w-[90%]
@@ -61,8 +62,8 @@ const Header = ({ setIsOpen, isOpen }) => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <span></span>
-        <NavLink to="/" className="justify-self-center w-fit">
-          <img src="logo.svg" alt="" className="w-[14rem]" />
+        <NavLink to="/" onClick={()=>setIsOpen(false)} className="justify-self-center text-center w-fit sm:text-3xl text-xl">
+          <h1>O | K DESIGN</h1>
         </NavLink>
         <button
           onClick={() => setIsOpen((prev) => !prev)}
@@ -96,6 +97,7 @@ const NavLinksMenu = (props) => {
     ease-linear
     delay-0
     duration-300
+
     ${!isOpen && "!delay-700"}
   `),
     menu_wrapper: ctl(`
@@ -105,7 +107,10 @@ const NavLinksMenu = (props) => {
     w-[80%]
     mx-auto
     flex-col
-    space-y-8
+    xl:space-y-8
+    space-y-
+    xl:text-6xl
+    text-4xl
   `),
   };
 
@@ -153,7 +158,7 @@ const NavLinksMenu = (props) => {
           >
             {/* LINKS DIV */}
             <motion.div custom={i} variants={variant.link}>
-              <NavLink to={url} className={LinkStyled.Class + " text-6xl"}>
+              <NavLink to={url} className={LinkStyled.Class + " [&.active]:opacity-50"}>
                 {name} <LinkStyled.Lines />
               </NavLink>
             </motion.div>

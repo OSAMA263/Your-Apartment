@@ -1,23 +1,30 @@
 import FormSocialContact from "../Contact/FormSocialContact";
 import ctl from "@netlify/classnames-template-literals";
 import SocialLinks from "../Contact/SocialLinks";
+import RouterAnimate from "../../Global-shit/RouterAnimate";
 
 export default function Contact() {
   const className = ctl(`
-  md:container 
-  h-[100dvh]
-  m-auto 
+  container 
+  m-40
+  mx-auto 
+  px-4
   items-center 
-  justify-around 
   grid
-  grid-cols-2
-  gap-x-52
+  lg:grid-cols-2
+  lg:grid-rows-1
+  lg:justify-around 
+  grid-rows-2
+  gap-y-10
+  xl:gap-x-52
   `);
 
   return (
-    <div className={className}>
-      <SocialLinks />
-      <FormSocialContact />
-    </div>
+    <RouterAnimate>
+      <div className={className}>
+        <SocialLinks />
+        <FormSocialContact />
+      </div>
+    </RouterAnimate>
   );
 }

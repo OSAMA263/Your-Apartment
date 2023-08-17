@@ -1,10 +1,9 @@
 import ctl from "@netlify/classnames-template-literals";
 import * as LinkStyled from "../../Global-shit/LinesUnderLink";
 import { Fragment } from "react";
+import RevealElements from "../../Global-shit/RevealElements";
 
-const Section = (props) => {
-  const { data } = props;
-
+const Section = ({ data }) => {
   const end_data = [
     {
       h1: "Data Security",
@@ -20,7 +19,6 @@ const Section = (props) => {
     section: ctl(`
     border-t-2
     border-gray-300
-    w-1/2 
     flex
     flex-col
     pt-28
@@ -30,21 +28,43 @@ const Section = (props) => {
     text-center 
     [word-spacing:4px] 
     tracking-wider
+    xl:w-1/2 
+    w-[80%]
     `),
+    // -----------------
     h1: ctl(`
-    text-6xl 
+    xl:text-6xl
+    md:text-5xl 
+    text-3xl
     font-semibold
     `),
+    // -----------------
     text_wrapper: ctl(`
     leading-loose 
     space-y-8
-    text-2xl
+    md:text-2xl
+    text-lg
     `),
+    // -----------------
     list_wapper: ctl(`
     leading-relaxed 
-    text-2xl 
+    md:text-2xl 
+    text-lg
     space-y-8
     `),
+    // -----------------
+    last_content: ctl(`
+    mx-auto 
+    text-2xl
+    text-center 
+    flex 
+    flex-col 
+    gap-y-8 
+    pb-32
+    xl:w-1/2 
+    w-[80%]
+    `),
+    // ----------------
   };
 
   return (
@@ -53,28 +73,46 @@ const Section = (props) => {
         {data.map(({ header, text, li, link }, i) => (
           <section key={i} className={styles.section}>
             {/* HEADER */}
-            <h1 className={styles.h1}>{header}</h1>
+            <RevealElements>
+              <h1 className={styles.h1}>{header}</h1>
+            </RevealElements>
             {/* TEXT */}
             <div className={styles.text_wrapper}>
-              {text && text.map((ele, i) => <p key={i}>{ele}</p>)}
+              {text &&
+                text.map((ele, i) => (
+                  <RevealElements key={i}>
+                    <p>{ele}</p>
+                  </RevealElements>
+                ))}
             </div>
             {/* LIST POINTS */}
             <div className={styles.list_wapper}>
-              {li && li.map((ele, i) => <li key={i}>{ele}</li>)}
+              {li &&
+                li.map((ele, i) => (
+                  <RevealElements key={i}>
+                    <li>{ele}</li>
+                  </RevealElements>
+                ))}
             </div>
             {/* LINK */}
             {link && (
-              <button className={LinkStyled.Class}>
-                {link} <LinkStyled.Lines />
-              </button>
+              <RevealElements>
+                <button className={LinkStyled.Class}>
+                  {link} <LinkStyled.Lines />
+                </button>{" "}
+              </RevealElements>
             )}
           </section>
         ))}
-        <div className="w-1/2 mx-auto text-2xl text-center flex flex-col gap-y-8 pb-32">
+        <div className={styles.last_content}>
           {end_data.map(({ h1, p }, i) => (
             <Fragment key={i}>
-              <h1 className="font-semibold">{h1}</h1>
-              <p className="leading-loose">{p}</p>
+              <RevealElements>
+                <h1 className="font-semibold">{h1}</h1>
+              </RevealElements>
+              <RevealElements>
+                <p className="leading-loose md:text-2xl text-lg">{p}</p>
+              </RevealElements>
             </Fragment>
           ))}
         </div>

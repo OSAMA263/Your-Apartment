@@ -1,6 +1,11 @@
 import ctl from "@netlify/classnames-template-literals";
 import Carousel from "../protfolio/Carousel";
+import RouterAnimate from "../../Global-shit/RouterAnimate";
+import Loader from "../protfolio/Loader";
+import { useState } from "react";
 export default function Protfolio() {
+  const [isReady, setIsReady] = useState(false);
+
   const styles = {
     swiper_wrapper: ctl(`
     h-screen
@@ -12,9 +17,12 @@ export default function Protfolio() {
 
   return (
     <>
-      <div className={styles.swiper_wrapper}>
-        <Carousel />
-      </div>
+      <Loader isReady={isReady} />
+      <RouterAnimate>
+        <div className={styles.swiper_wrapper}>
+          <Carousel setIsReady={setIsReady} />
+        </div>
+      </RouterAnimate>
     </>
   );
 }

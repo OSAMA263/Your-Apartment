@@ -1,5 +1,6 @@
 import ctl from "@netlify/classnames-template-literals";
 import GetInTouch from "../../Global-shit/GetInTouch";
+import RevealElements from "../../Global-shit/RevealElements";
 
 export default function Sections() {
   return (
@@ -15,35 +16,44 @@ export default function Sections() {
 
 const Section1 = () => (
   <section className={styles.section1}>
-    <h1 className="w-[70%] text-balance">
-      Charlie Horner is a forward thinking interior designer.
-    </h1>
+    <RevealElements>
+      <h1 className="sm:w-[66%] lg:text-5xl text-4xl  text-balance">
+        Charlie Horner is a forward thinking interior designer.
+      </h1>
+    </RevealElements>
   </section>
 );
 
 const Section2 = () => (
   <div className="bg-[#e3e3e7]">
     <section className={styles.section2}>
-      <div className="space-y-24 w-[70%] text-center mx-auto">
-        <h1 className="text-5xl leading-relaxed">
-          A tailored approach to reflect individual client’s needs & aspirations
-        </h1>
-        <p className={styles.section2_text}>
-          Beginning her career with a London based luxury development studio,
-          she has worked on a number of high profile projects in some of the
-          most exclusive locations across London, New York, Monaco & Dubai.
-        </p>
+      <div className="space-y-24 md:w-[70%] w-[95%] text-center mx-auto">
+        <RevealElements>
+          <h1 className="lg:text-5xl text-4xl leading-relaxed">
+            A tailored approach to reflect individual client’s needs &
+            aspirations
+          </h1>
+        </RevealElements>
+        <RevealElements>
+          <p className={styles.section2_text}>
+            Beginning her career with a London based luxury development studio,
+            she has worked on a number of high profile projects in some of the
+            most exclusive locations across London, New York, Monaco & Dubai.
+          </p>
+        </RevealElements>
       </div>
       {/* card */}
-      <div className={styles.card}>
-        <div
-          style={{
-            backgroundImage: `url("${data.card.img}")`,
-          }}
-          className="w-full h-full bg-cover bg-center bg-no-repeat "
-        ></div>
-        <p className={styles.card_text}>{data.card.text}</p>
-      </div>
+      <RevealElements>
+        <div className={styles.card}>
+          <div
+            style={{
+              backgroundImage: `url("${data.card.img}")`,
+            }}
+            className="w-full h-full bg-cover bg-center bg-no-repeat "
+          ></div>
+          <p className={styles.card_text}>{data.card.text}</p>
+        </div>
+      </RevealElements>
     </section>
   </div>
 );
@@ -69,7 +79,8 @@ const styles = {
   tracking-wider
   flex 
   flex-col
-  md:w-[60%]
+  mt-10
+  w-[80%]
 `),
   section2: ctl(`
   py-48
@@ -77,30 +88,33 @@ const styles = {
   flex-col
   gap-y-56
   mx-auto
-  md:w-[60%]
+  xl:w-[80%]
 `),
   section2_text: ctl(`
   text-2xl
-  w-[80%] 
   mx-auto 
   leading-loose 
   tracking-wider
+  w-[80%] 
 `),
   card: ctl(`
   justify-center
   items-center
   grid
-  grid-cols-2
   mx-auto
   text-center
-  h-[660px]
   overflow-hidden
+  grid-rows-2
+  md:grid-cols-2
+  md:grid-rows-1
+  lg:h-[660px]
 `),
   card_text: ctl(`
   text-2xl
   mx-auto 
   leading-loose 
-  px-24
+  lg:px-24
+  px-16
   xl:py-12
   h-full
   flex

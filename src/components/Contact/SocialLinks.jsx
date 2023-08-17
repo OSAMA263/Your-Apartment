@@ -8,6 +8,9 @@ const SocialLinks = () => {
     flex-col
     justify-between
     gap-y-28
+    w-full
+    lg:-order-1
+    order-1
     `),
   };
 
@@ -18,7 +21,7 @@ const SocialLinks = () => {
 
   return (
     <section className={styles.section}>
-      <div className="text-6xl space-y-2">
+      <div className="lg:text-6xl md:text-5xl text-4xl space-y-2">
         <span>Get in touch</span>
         <span className="flex items-center">
           <small className="inline-block h-[1px] w-10 bg-black me-2"></small>

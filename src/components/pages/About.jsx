@@ -1,5 +1,10 @@
+import RouterAnimate from "../../Global-shit/RouterAnimate";
 import Sections from "../About us/Sections";
 
 export default function About() {
-  return <Sections />;
+  return (
+    <RouterAnimate>
+      <Sections />
+    </RouterAnimate>
+  );
 }

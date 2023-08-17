@@ -1,8 +1,8 @@
-import React from "react";
 import Section from "../privacy-policy/Section";
 import GetInTouch from "../../Global-shit/GetInTouch";
+import RouterAnimate from "../../Global-shit/RouterAnimate";
 
-const PrivacyPolicy = React.memo(() => {
+const PrivacyPolicy = () => {
   const data = [
     {
       header: "Privacy Policy",
@@ -58,12 +58,12 @@ const PrivacyPolicy = React.memo(() => {
 
   return (
     <>
-      <div className="">
+      <RouterAnimate>
         <Section data={data} />
-        <GetInTouch/>
-      </div>
+        <GetInTouch />
+      </RouterAnimate>
     </>
   );
-});
+};
 
 export default PrivacyPolicy;

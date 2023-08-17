@@ -7,6 +7,6 @@ const Lines = () => {
   );
 };
 const Class =
-  "relative w-fit [&>span]:hover:left-0 [&>span]:hover:w-full transition-all duration-500 hover:ml-2";
+  "relative w-fit [&>span]:hover:left-0 [&>span]:hover:w-full transition-all hover:ml-2";
 
   export {Lines,Class}
