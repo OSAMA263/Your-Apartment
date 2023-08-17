@@ -12,7 +12,7 @@ const Loader = ({ isReady }) => {
     overflow-hidden
     transition-all
     duration-[1s]
-    delay-[3s] 
+    delay-[2.6s] 
     ${isReady&&"!h-[0vh]"}
     `),
     progress: ctl(`
@@ -30,7 +30,7 @@ const Loader = ({ isReady }) => {
     bg-gray-200
     transition-all 
     duration-1000
-    delay-[2s]
+    delay-[1.8s]
     ${isReady&&"sm:-translate-x-1/3"}
     `),
   };
@@ -44,7 +44,7 @@ const Loader = ({ isReady }) => {
       />
       <section className={styles.hero_section}>
         <h1 className="text-2xl">O | K DESIGN</h1>
-        <div className="absolute sm:block hidden lg:w-auto w-1/2 -right-1/3 top-0 h-screen">
+        <div className="absolute sm:block hidden lg:w-auto w-1/2 -right-[34%] top-0 h-screen">
           <img src="loader_img.jpg" className="h-full w-full" alt="" />
         </div>
       </section>
