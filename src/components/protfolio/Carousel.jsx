@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import React,{ useCallback, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation } from "swiper/modules";
@@ -11,7 +11,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@uidotdev/usehooks";
 
 const Carousel = ({ setIsReady }) => {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [displayedProject, setDisplayedProject] = useState({});
   const [isOpen, setIsOpen] = useToggle();
   const hiddenOnDevices = useMediaQuery("(min-width:640px)");
@@ -420,4 +420,4 @@ const styles = {
     },
   ],
 };
-export default Carousel;
+export default React.memo(Carousel);
