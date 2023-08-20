@@ -6,7 +6,7 @@ import "swiper/css";
 import { CloseIcon } from "@chakra-ui/icons";
 
 const ModalProject = React.memo((props) => {
-  const { displayedProject, isOpen, setIsOpen } = props;
+  const { displayedProject, isOpen, setIsOpen, smallDevice } = props;
 
   const styles = {
     project_viewer: ctl(`
@@ -41,13 +41,15 @@ const ModalProject = React.memo((props) => {
             isOpen && "cursor-grab"
           } lg:w-2/5 sm:w-[70%] h-full flex justify-center`}
         >
-          {displayedProject.images && (
-              displayedProject.images.map((src, i) => (
-                <SwiperSlide key={i}>
-                  <img src={src} className="h-full w-full" alt="" />
-                </SwiperSlide>
-              ))
-          )}
+          {displayedProject.pc_imgs &&
+            (smallDevice
+              ? displayedProject.pc_imgs
+              : displayedProject.mobile_imgs
+            ).map((src, i) => (
+              <SwiperSlide key={i}>
+                <img src={src} className="w-full h-full" alt="" />
+              </SwiperSlide>
+            ))}
         </Swiper>
       </Fade>
     </>

@@ -14,7 +14,7 @@ const Loader = ({ isReady }) => {
     duration-[1s]
     delay-[.7s]
     sm:delay-[2.6s] 
-    ${isReady&&"!h-[0vh]"}
+    ${isReady && "!h-[0vh]"}
     `),
     progress: ctl(`
     [&>div]:!bg-gradient-to-r 
@@ -23,8 +23,8 @@ const Loader = ({ isReady }) => {
     `),
     hero_section: ctl(`
     relative
-    w-full 
-    flex 
+    w-full
+    flex
     items-center 
     justify-center 
     h-full 
@@ -32,7 +32,16 @@ const Loader = ({ isReady }) => {
     transition-all 
     duration-1000
     delay-[1.8s]
-    ${isReady&&"sm:-translate-x-1/3"}
+    ${isReady && "sm:-translate-x-1/3"}
+    `),
+    img: ctl(`
+    absolute 
+    sm:block 
+    hidden 
+    w-1/2 
+    -right-1/2
+    top-0 
+    h-screen
     `),
   };
 
@@ -44,8 +53,8 @@ const Loader = ({ isReady }) => {
         isIndeterminate={!isReady}
       />
       <section className={styles.hero_section}>
-        <h1 className="text-2xl">O | K DESIGN</h1>
-        <div className="absolute sm:block hidden lg:w-auto w-1/2 -right-[34%] top-0 h-screen">
+        <h1 className="sm:text-2xl text-lg">O | K DESIGN</h1>
+        <div className={styles.img}>
           <img src="loader_img.webp" className="w-full h-full" alt="" />
         </div>
       </section>
