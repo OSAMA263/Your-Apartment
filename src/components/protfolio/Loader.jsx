@@ -12,7 +12,8 @@ const Loader = ({ isReady }) => {
     overflow-hidden
     transition-all
     duration-[1s]
-    delay-[2.6s] 
+    delay-[.7s]
+    sm:delay-[2.6s] 
     ${isReady&&"!h-[0vh]"}
     `),
     progress: ctl(`
