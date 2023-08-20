@@ -62,7 +62,11 @@ const Header = ({ setIsOpen, isOpen }) => {
     <header className={styles.header}>
       <nav className={styles.nav}>
         <span></span>
-        <NavLink to="/" onClick={()=>setIsOpen(false)} className="justify-self-center text-center w-fit sm:text-3xl text-xl">
+        <NavLink
+          to="/"
+          onClick={() => setIsOpen(false)}
+          className="justify-self-center text-center w-fit lg:text-3xl sm:text-xl text-lg"
+        >
           <h1>O | K DESIGN</h1>
         </NavLink>
         <button
@@ -158,7 +162,10 @@ const NavLinksMenu = (props) => {
           >
             {/* LINKS DIV */}
             <motion.div custom={i} variants={variant.link}>
-              <NavLink to={url} className={LinkStyled.Class + " [&.active]:opacity-50"}>
+              <NavLink
+                to={url}
+                className={LinkStyled.Class + " [&.active]:opacity-50"}
+              >
                 {name} <LinkStyled.Lines />
               </NavLink>
             </motion.div>

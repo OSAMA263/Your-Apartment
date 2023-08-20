@@ -40,7 +40,7 @@ const Loader = ({ isReady }) => {
     <div className={styles.parent}>
       <Progress
         className={styles.progress}
-        size="xs"
+        size="sm"
         isIndeterminate={!isReady}
       />
       <section className={styles.hero_section}>

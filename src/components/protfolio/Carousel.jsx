@@ -433,7 +433,8 @@ const styles = {
   h-[80%] 
   lg:w-[60%] 
   md:w-[69%]
-  w-[80%] 
+  max-sm:w-[67%]
+  w-[88%]
   mx-auto
   `),
   side_navigate_btns: [
