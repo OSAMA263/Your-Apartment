@@ -1,4 +1,4 @@
-import React,{ useCallback, useState } from "react";
+import React, { useCallback, useState } from "react";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Navigation } from "swiper/modules";
@@ -14,99 +14,117 @@ const Carousel = ({ setIsReady }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [displayedProject, setDisplayedProject] = useState({});
   const [isOpen, setIsOpen] = useToggle();
-  const hiddenOnDevices = useMediaQuery("(min-width:640px)");
+  const smallDevice = useMediaQuery("(min-width:640px)");
 
   const projects = [
     {
       place: "Chelsea Apartment",
       view: true,
-      images: [
-        "swiper/Chelsea-Apartment-1_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/Chelsea-Apartment-3_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/Chelsea-Apartment-2_dbf8d6a38dd21a4600d81f78eddca413.jpg",
+      mobile_img:
+        "swiper/mobile/Chelsea-Apartment-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/Chelsea-Apartment-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/Chelsea-Apartment-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/Chelsea-Apartment-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
       ],
     },
     {
       place: "London Townhouse",
       view: true,
-      images: [
-        "swiper/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413j.jpg",
-        "swiper/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413d.jpg",
+      mobile_img:
+        "swiper/mobile/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413j.webp",
+        "swiper/pc/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413d.webp",
       ],
     },
 
     {
       place: "Soho Loft, New York",
       view: true,
-      images: [
-        "swiper/NY_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/NY.3_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/NY.5_dbf8d6a38dd21a4600d81f78eddca413.jpg",
+      mobile_img: "swiper/mobile/NY_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/NY_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/NY.3_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/NY.5_dbf8d6a38dd21a4600d81f78eddca413.webp",
       ],
     },
     {
       place: "Marine",
       view: true,
-      images: [
-        "swiper/Marine-3_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/Marine-2_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/Marine-1_dbf8d6a38dd21a4600d81f78eddca413.jpg",
+      mobile_img:
+        "swiper/mobile/Marine-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/Marine-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/Marine-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/Marine-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
       ],
     },
     {
       place: "London Townhouse",
       view: true,
-      images: [
-        "swiper/London-Townhouse-1_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/London-Townhouse-3_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/London-Townhouse-2_dbf8d6a38dd21a4600d81f78eddca413.jpg",
+      mobile_img:
+        "swiper/mobile/London-Townhouse-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/London-Townhouse-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/London-Townhouse-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/London-Townhouse-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
       ],
     },
 
     {
       place: "The Blonde Hedgehog",
       view: true,
-      images: [
-        "swiper/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4134.jpg",
-        "swiper/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4131.jpg",
+      mobile_img:
+        "swiper/mobile/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4134.webp",
+        "swiper/pc/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4131.webp",
       ],
     },
     {
       place: "Dubai",
       view: true,
-      images: [
-        "swiper/51A6412_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/51A5998flat_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/51A6161_dbf8d6a38dd21a4600d81f78eddca413.jpg",
+      mobile_img: "swiper/mobile/51A6412_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/51A6412_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/51A5998flat_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/51A6161_dbf8d6a38dd21a4600d81f78eddca413.webp",
       ],
     },
     {
       place: "Notting Hill Family Home",
       view: true,
-      images: [
-        "swiper/Guest-Bath_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/Bathroom_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/Bedroom_dbf8d6a38dd21a4600d81f78eddca413.jpg",
+      mobile_img:
+        "swiper/mobile/Guest-Bath_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/Guest-Bath_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/Bathroom_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/Bedroom_dbf8d6a38dd21a4600d81f78eddca413.webp",
       ],
     },
     {
       place: "Aviation",
       view: true,
-      images: [
-        "swiper/2-Mato-6106_dbf8d6a38dd21a4600d81f78eddca413.jpg",
-        "swiper/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413as.jpg",
-        "swiper/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413.jpg",
+      mobile_img:
+        "swiper/mobile/2-Mato-6106_dbf8d6a38dd21a4600d81f78eddca413.webp",
+      pc_imgs: [
+        "swiper/pc/2-Mato-6106_dbf8d6a38dd21a4600d81f78eddca413.webp",
+        "swiper/pc/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413as.webp",
+        "swiper/pc/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413.webp",
       ],
     },
     {
       place: "Soho Penthouse, New York",
       view: false,
-      images: [
-        "swiper/Soho-Loft-Apartment-New-York-1_41e3d52726a6919d0b92ccd3a3c821d5.jpg",
-        "swiper/Soho-Loft-Apartment-New-York-2_41e3d52726a6919d0b92ccd3a3c821d5.jpg",
-        "swiper/Soho-Loft-Apartment-New-York-3_41e3d52726a6919d0b92ccd3a3c821d5.jpg",
+      mobile_img:
+        "swiper/mobile/Soho-Loft-Apartment-New-York-1_41e3d52726a6919d0b92ccd3a3c821d5.webp",
+      pc_imgs: [
+        "swiper/pc/Soho-Loft-Apartment-New-York-1_41e3d52726a6919d0b92ccd3a3c821d5.webp",
+        "swiper/pc/Soho-Loft-Apartment-New-York-2_41e3d52726a6919d0b92ccd3a3c821d5.webp",
+        "swiper/pc/Soho-Loft-Apartment-New-York-3_41e3d52726a6919d0b92ccd3a3c821d5.webp",
       ],
     },
   ];
@@ -216,11 +234,14 @@ const Carousel = ({ setIsReady }) => {
     [displayedProject, isOpen]
   );
 
-  const images_is_ready = () => {
-    setTimeout(() => {
-      setIsReady(true);
-    }, 3000);
-  };
+  const images_is_ready = useCallback(() => {
+    setTimeout(
+      () => {
+        setIsReady(true);
+      },
+      smallDevice ? 2500 : 500
+    );
+  }, []);
 
   return (
     <>
@@ -232,31 +253,37 @@ const Carousel = ({ setIsReady }) => {
           <button key={i} className={btn.clas} id={btn.id}></button>
         ))}
         {/* PROJECTS SLIDE */}
-        {projects.map(({ images, place, view }, i) => (
+        {projects.map(({ mobile_img, pc_imgs, place, view }, i) => (
           <SwiperSlide className="flex items-center" key={i}>
             <div className={styles.project_wrapper}>
-              <img
+              <picture
+                className="relative"
                 onLoad={images_is_ready}
                 onClick={() => modal_handler(i)}
-                className={styles.centerd_img}
-                src={images[0]}
-              />
-              <motion.img
-                custom={i}
-                loading="lazy"
-                {...variants.init_animate}
-                variants={hiddenOnDevices && variants.L_img_variant}
-                className={styles.RL_img}
-                src={images[1]}
-              />
-              <motion.img
-                custom={i}
-                loading="lazy"
-                {...variants.init_animate}
-                variants={hiddenOnDevices && variants.R_img_variant}
-                className={styles.RL_img}
-                src={images[2]}
-              />
+              >
+                <source srcSet={mobile_img} media="(max-width:645px)" />
+                <img className={styles.centerd_img} src={pc_imgs[0]} />
+              </picture>
+              {smallDevice && (
+                <>
+                  <motion.img
+                    src={pc_imgs[1]}
+                    custom={i}
+                    loading="lazy"
+                    {...variants.init_animate}
+                    variants={smallDevice && variants.L_img_variant}
+                    className={styles.RL_img}
+                  />
+                  <motion.img
+                    src={pc_imgs[2]}
+                    custom={i}
+                    loading="lazy"
+                    {...variants.init_animate}
+                    variants={smallDevice && variants.R_img_variant}
+                    className={styles.RL_img}
+                  />
+                </>
+              )}
               {/* ------------PROJECT PLACE View */}
               <div className={styles.project_details_wrapper}>
                 <div className="overflow-y-hidden ">
@@ -269,7 +296,7 @@ const Carousel = ({ setIsReady }) => {
                   </motion.h1>
                 </div>
                 {/* ----------VIEW BTN */}
-                <div className="overflow-y-hidden hidden sm:block text-xl pb-3">
+                <div className="hidden pb-3 overflow-y-hidden text-xl sm:block">
                   <motion.button
                     {...variants.init_animate}
                     variants={variants.project_details}

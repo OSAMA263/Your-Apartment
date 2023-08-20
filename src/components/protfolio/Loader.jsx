@@ -45,7 +45,7 @@ const Loader = ({ isReady }) => {
       <section className={styles.hero_section}>
         <h1 className="text-2xl">O | K DESIGN</h1>
         <div className="absolute sm:block hidden lg:w-auto w-1/2 -right-[34%] top-0 h-screen">
-          <img src="loader_img.jpg" className="h-full w-full" alt="" />
+          <img src="loader_img.webp" className="w-full h-full" alt="" />
         </div>
       </section>
     </div>

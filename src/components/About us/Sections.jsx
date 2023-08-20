@@ -29,7 +29,7 @@ const Section2 = () => (
     <section className={styles.section2}>
       <div className="space-y-24 md:w-[70%] w-[95%] text-center mx-auto">
         <RevealElements>
-          <h1 className="lg:text-5xl text-4xl leading-relaxed">
+          <h1 className="text-4xl leading-relaxed lg:text-5xl">
             A tailored approach to reflect individual client’s needs &
             aspirations
           </h1>
@@ -49,7 +49,7 @@ const Section2 = () => (
             style={{
               backgroundImage: `url("${data.card.img}")`,
             }}
-            className="w-full h-full bg-cover bg-center bg-no-repeat "
+            className="w-full h-full bg-center bg-no-repeat bg-cover "
           ></div>
           <p className={styles.card_text}>{data.card.text}</p>
         </div>
@@ -66,7 +66,7 @@ const data = {
   },
   card: {
     text: "Charlie’s ever-evolving style is underpinned by neutral, earthy tones layered with natural textures and a rich mix of antique, vintage and modern furniture ultimately creating beautiful interior design solutions for each client.",
-    img: "about-lady.jpg",
+    img: "about-lady.webp",
   },
 };
 

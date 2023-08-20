@@ -3,7 +3,7 @@ import Carousel from "../protfolio/Carousel";
 import RouterAnimate from "../../Global-shit/RouterAnimate";
 import Loader from "../protfolio/Loader";
 import { useState } from "react";
-export default function Protfolio() {
+const Protfolio=()=> {
   const [isReady, setIsReady] = useState(false);
 
   const styles = {
@@ -26,3 +26,4 @@ export default function Protfolio() {
     </>
   );
 }
+export default Protfolio
