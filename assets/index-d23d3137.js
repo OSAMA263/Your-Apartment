@@ -489,8 +489,7 @@ Error generating stack: `+o.message+`
     overflow-hidden
     transition-all
     duration-[1s]
-    delay-[.7s]
-    sm:delay-[2.6s] 
+    delay-[2.8s] 
     ${e&&"!h-[0vh]"}
     `),progress:We(`
     [&>div]:!bg-gradient-to-r 
@@ -506,7 +505,7 @@ Error generating stack: `+o.message+`
     bg-gray-200
     transition-all 
     duration-1000
-    delay-[1.5s]
+    delay-[2s]
     ${e&&"sm:-translate-x-1/3"}
     `),img:We(`
     absolute 
@@ -521,4 +520,4 @@ Error generating stack: `+o.message+`
     flex 
     justify-center
     items-center
-    `)};return _.jsxs(_.Fragment,{children:[_.jsx(q8,{isReady:e}),_.jsx(X8,{children:_.jsx("div",{className:r.swiper_wrapper,children:_.jsx(K8,{setIsReady:t})})})]})},Z8=w.lazy(()=>Up(()=>import("./About-f54a41fd.js"),["assets/About-f54a41fd.js","assets/GetInTouch-4a1f114b.js"])),J8=w.lazy(()=>Up(()=>import("./Contact-19b2995b.js"),[])),ej=w.lazy(()=>Up(()=>import("./PrivacyPolicy-28e9ea76.js"),["assets/PrivacyPolicy-28e9ea76.js","assets/GetInTouch-4a1f114b.js"]));function tj(){const e=ti();return w.useEffect(()=>{window.scroll({top:0,bottom:0,behavior:"smooth"})},[e.pathname]),_.jsxs(_.Fragment,{children:[_.jsx(sO,{}),_.jsx(Hs,{mode:"wait",children:_.jsxs(z2,{location:e,children:[_.jsx(Eo,{element:_.jsx(Q8,{}),path:"/"}),_.jsx(Eo,{element:_.jsx(Z8,{}),path:"/about-us"}),_.jsx(Eo,{element:_.jsx(J8,{}),path:"/contact"}),_.jsx(Eo,{element:_.jsx(ej,{}),path:"/privacy-policy"})]},e.pathname)})]})}Sd.createRoot(document.getElementById("root")).render(_.jsx(O2,{children:_.jsx(X6,{children:_.jsx(tj,{})})}));export{Ih as C,Lh as L,hb as N,X8 as R,ro as a,Or as b,We as c,rt as d,rj as e,fr as f,Vu as g,ti as h,_ as j,Ut as m,Bu as o,w as r,uS as u};
+    `)};return _.jsxs(_.Fragment,{children:[_.jsx(q8,{isReady:e}),_.jsx(X8,{children:_.jsx("div",{className:r.swiper_wrapper,children:_.jsx(K8,{setIsReady:t})})})]})},Z8=w.lazy(()=>Up(()=>import("./About-13e822d9.js"),["assets/About-13e822d9.js","assets/GetInTouch-fd052181.js"])),J8=w.lazy(()=>Up(()=>import("./Contact-f77c29f3.js"),[])),ej=w.lazy(()=>Up(()=>import("./PrivacyPolicy-ab875b28.js"),["assets/PrivacyPolicy-ab875b28.js","assets/GetInTouch-fd052181.js"]));function tj(){const e=ti();return w.useEffect(()=>{window.scroll({top:0,bottom:0,behavior:"smooth"})},[e.pathname]),_.jsxs(_.Fragment,{children:[_.jsx(sO,{}),_.jsx(Hs,{mode:"wait",children:_.jsxs(z2,{location:e,children:[_.jsx(Eo,{element:_.jsx(Q8,{}),path:"/"}),_.jsx(Eo,{element:_.jsx(Z8,{}),path:"/about-us"}),_.jsx(Eo,{element:_.jsx(J8,{}),path:"/contact"}),_.jsx(Eo,{element:_.jsx(ej,{}),path:"/privacy-policy"})]},e.pathname)})]})}Sd.createRoot(document.getElementById("root")).render(_.jsx(O2,{children:_.jsx(X6,{children:_.jsx(tj,{})})}));export{Ih as C,Lh as L,hb as N,X8 as R,ro as a,Or as b,We as c,rt as d,rj as e,fr as f,Vu as g,ti as h,_ as j,Ut as m,Bu as o,w as r,uS as u};
