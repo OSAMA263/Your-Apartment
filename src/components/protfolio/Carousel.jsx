@@ -175,8 +175,8 @@ const Carousel = ({ setIsReady }) => {
       slideShadows: false,
     },
     navigation: {
-      nextEl: "#next",
-      prevEl: "#prev",
+      nextEl: ".next",
+      prevEl: ".prev",
     },
     // ---------------------
     breakpoints: {
@@ -282,7 +282,7 @@ const Carousel = ({ setIsReady }) => {
         <Navigate_btns activeIndex={activeIndex} />
         {/* NAVIGAT BTNS ON THE SIDES */}
         {styles.side_navigate_btns.map((btn, i) => (
-          <button key={i} className={btn.clas} id={btn.id}></button>
+          <button key={i} className={btn.clas}></button>
         ))}
         {/* PROJECTS SLIDE */}
         {projects.map(({ mobile_imgs, pc_imgs, place, view }, i) => (
@@ -294,12 +294,13 @@ const Carousel = ({ setIsReady }) => {
                 onClick={() => modal_handler(i)}
               >
                 <source srcSet={mobile_imgs[0]} media="(max-width:645px)" />
-                <img className={styles.centerd_img} src={pc_imgs[0]} />
+                <img className={styles.centerd_img} alt="img1" src={pc_imgs[0]} />
               </picture>
               {onLgScreen && (
                 <>
                   <motion.img
                     src={pc_imgs[1]}
+                    alt="img2"
                     custom={i}
                     loading="lazy"
                     {...variants.init_animate}
@@ -308,6 +309,7 @@ const Carousel = ({ setIsReady }) => {
                   />
                   <motion.img
                     src={pc_imgs[2]}
+                    alt="img3"
                     custom={i}
                     loading="lazy"
                     {...variants.init_animate}
@@ -376,7 +378,7 @@ const Navigate_btns = ({ activeIndex }) => {
   return (
     <>
       <div className="flex gap-x-5 items-center justify-center my-[4.3rem] lg0">
-        <button id="prev">
+        <button className="prev">
           <ChevronLeftIcon className="text-2xl" />
         </button>
         {/* CURRENT SLIDE  */}
@@ -393,7 +395,7 @@ const Navigate_btns = ({ activeIndex }) => {
           </AnimatePresence>
         </div>
         /<span>10</span>
-        <button id="next">
+        <button className="next">
           <ChevronRightIcon className="text-2xl" />
         </button>
       </div>
@@ -471,12 +473,10 @@ const styles = {
   `),
   side_navigate_btns: [
     {
-      id: "prev",
-      clas: "absolute z-50 h-[40%] top-1/2 -translate-y-1/2 align-middle md:w-3 lg:w-[5%] left-0",
+      clas: "prev absolute z-50 h-[40%] top-1/2 -translate-y-1/2 align-middle md:w-3 lg:w-[5%] left-0",
     },
     {
-      id: "next",
-      clas: "absolute z-50 h-[40%] top-1/2 -translate-y-1/2 align-middle md:w-3 lg:w-[5%] right-0",
+      clas: "next absolute z-50 h-[40%] top-1/2 -translate-y-1/2 align-middle md:w-3 lg:w-[5%] right-0",
     },
   ],
 };

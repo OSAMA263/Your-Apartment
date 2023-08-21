@@ -58,7 +58,7 @@ const Loader = ({ isReady }) => {
         <h1 className="text-lg sm:text-2xl">O | K DESIGN</h1>
         {onLgScreen && (
           <div className={styles.img}>
-            <img src="loader_img.webp" className="w-full h-full" alt="" />
+            <img src="loader_img.webp" className="w-full h-full" alt="loading.." />
           </div>
         )}
       </section>
