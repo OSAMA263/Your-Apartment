@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import Protfolio from "./components/pages/Protfolio";
 import { useEffect } from "react";
 import { lazy } from "react";
+import { useState } from "react";
 
 const About = lazy(() => import("./components/pages/About"));
 const Contact = lazy(() => import("./components/pages/Contact"));

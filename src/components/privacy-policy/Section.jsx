@@ -99,7 +99,7 @@ const Section = ({ data }) => {
               <RevealElements>
                 <button className={LinkStyled.Class}>
                   {link} <LinkStyled.Lines />
-                </button>{" "}
+                </button>
               </RevealElements>
             )}
           </section>
@@ -111,7 +111,7 @@ const Section = ({ data }) => {
                 <h1 className="font-semibold">{h1}</h1>
               </RevealElements>
               <RevealElements>
-                <p className="leading-loose md:text-2xl text-lg">{p}</p>
+                <p className="text-lg leading-loose md:text-2xl">{p}</p>
               </RevealElements>
             </Fragment>
           ))}

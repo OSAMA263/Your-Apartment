@@ -17,7 +17,7 @@ export default function Sections() {
 const Section1 = () => (
   <section className={styles.section1}>
     <RevealElements>
-      <h1 className="sm:w-[66%] lg:text-5xl text-4xl  text-balance">
+      <h1 className="sm:w-[66%] lg:text-5xl sm:text-4xl text-2xl text-balance">
         Charlie Horner is a forward thinking interior designer.
       </h1>
     </RevealElements>

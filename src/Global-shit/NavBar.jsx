@@ -65,7 +65,7 @@ const Header = ({ setIsOpen, isOpen }) => {
         <NavLink
           to="/"
           onClick={() => setIsOpen(false)}
-          className="justify-self-center text-center w-fit lg:text-3xl sm:text-xl text-lg"
+          className="text-lg text-center justify-self-center w-fit lg:text-3xl sm:text-xl"
         >
           <h1>O | K DESIGN</h1>
         </NavLink>
@@ -157,7 +157,7 @@ const NavLinksMenu = (props) => {
             variants={variant.parent}
             initial="init"
             animate="animate"
-            className="overflow-y-hidden w-fit py-2"
+            className="py-2 overflow-y-hidden w-fit"
             key={i}
           >
             {/* LINKS DIV */}

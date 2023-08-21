@@ -1,7 +1,10 @@
 import { Progress } from "@chakra-ui/react";
 import ctl from "@netlify/classnames-template-literals";
+import { useMediaQuery } from "@uidotdev/usehooks";
 
 const Loader = ({ isReady }) => {
+  const onLgScreen = useMediaQuery("(min-width:640px)");
+
   const styles = {
     parent: ctl(`
     absolute
@@ -31,7 +34,7 @@ const Loader = ({ isReady }) => {
     bg-gray-200
     transition-all 
     duration-1000
-    delay-[1.8s]
+    delay-[1.5s]
     ${isReady && "sm:-translate-x-1/3"}
     `),
     img: ctl(`
@@ -49,14 +52,16 @@ const Loader = ({ isReady }) => {
     <div className={styles.parent}>
       <Progress
         className={styles.progress}
-        size="sm"
+        size="xs"
         isIndeterminate={!isReady}
       />
       <section className={styles.hero_section}>
-        <h1 className="sm:text-2xl text-lg">O | K DESIGN</h1>
-        <div className={styles.img}>
-          <img src="loader_img.webp" className="w-full h-full" alt="" />
-        </div>
+        <h1 className="text-lg sm:text-2xl">O | K DESIGN</h1>
+        {onLgScreen && (
+          <div className={styles.img}>
+            <img src="loader_img.webp" className="w-full h-full" alt="" />
+          </div>
+        )}
       </section>
     </div>
   );

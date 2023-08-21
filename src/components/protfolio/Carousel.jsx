@@ -14,7 +14,7 @@ const Carousel = ({ setIsReady }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [displayedProject, setDisplayedProject] = useState({});
   const [isOpen, setIsOpen] = useToggle();
-  const smallDevice = useMediaQuery("(min-width:640px)");
+  const onLgScreen = useMediaQuery("(min-width:640px)");
 
   const projects = [
     {
@@ -271,7 +271,7 @@ const Carousel = ({ setIsReady }) => {
       () => {
         setIsReady(true);
       },
-      smallDevice ? 2500 : 500
+      onLgScreen ? 2500 : 500
     );
   }, []);
 
@@ -296,14 +296,14 @@ const Carousel = ({ setIsReady }) => {
                 <source srcSet={mobile_imgs[0]} media="(max-width:645px)" />
                 <img className={styles.centerd_img} src={pc_imgs[0]} />
               </picture>
-              {smallDevice && (
+              {onLgScreen && (
                 <>
                   <motion.img
                     src={pc_imgs[1]}
                     custom={i}
                     loading="lazy"
                     {...variants.init_animate}
-                    variants={smallDevice && variants.L_img_variant}
+                    variants={onLgScreen && variants.L_img_variant}
                     className={styles.RL_img}
                   />
                   <motion.img
@@ -311,7 +311,7 @@ const Carousel = ({ setIsReady }) => {
                     custom={i}
                     loading="lazy"
                     {...variants.init_animate}
-                    variants={smallDevice && variants.R_img_variant}
+                    variants={onLgScreen && variants.R_img_variant}
                     className={styles.RL_img}
                   />
                 </>
@@ -347,7 +347,7 @@ const Carousel = ({ setIsReady }) => {
         ))}
       </Swiper>
       {/* VIEW PROJECT MODAL */}
-      <ModalProject {...{ displayedProject, isOpen, setIsOpen ,smallDevice}} />
+      <ModalProject {...{ displayedProject, isOpen, setIsOpen ,onLgScreen}} />
     </>
   );
 };
