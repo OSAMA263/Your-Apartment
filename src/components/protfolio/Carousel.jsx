@@ -282,7 +282,7 @@ const Carousel = ({ setIsReady }) => {
         <Navigate_btns activeIndex={activeIndex} />
         {/* NAVIGAT BTNS ON THE SIDES */}
         {styles.side_navigate_btns.map((btn, i) => (
-          <button key={i} className={btn.clas}></button>
+          <button name={btn.name} key={i} className={btn.clas}></button>
         ))}
         {/* PROJECTS SLIDE */}
         {projects.map(({ mobile_imgs, pc_imgs, place, view }, i) => (
@@ -294,7 +294,11 @@ const Carousel = ({ setIsReady }) => {
                 onClick={() => modal_handler(i)}
               >
                 <source srcSet={mobile_imgs[0]} media="(max-width:645px)" />
-                <img className={styles.centerd_img} alt="img1" src={pc_imgs[0]} />
+                <img
+                  className={styles.centerd_img}
+                  alt="img1"
+                  src={pc_imgs[0]}
+                />
               </picture>
               {onLgScreen && (
                 <>
@@ -349,7 +353,7 @@ const Carousel = ({ setIsReady }) => {
         ))}
       </Swiper>
       {/* VIEW PROJECT MODAL */}
-      <ModalProject {...{ displayedProject, isOpen, setIsOpen ,onLgScreen}} />
+      <ModalProject {...{ displayedProject, isOpen, setIsOpen, onLgScreen }} />
     </>
   );
 };
@@ -378,7 +382,7 @@ const Navigate_btns = ({ activeIndex }) => {
   return (
     <>
       <div className="flex gap-x-5 items-center justify-center my-[4.3rem] lg0">
-        <button className="prev">
+        <button name="prev" className="prev">
           <ChevronLeftIcon className="text-2xl" />
         </button>
         {/* CURRENT SLIDE  */}
@@ -395,7 +399,7 @@ const Navigate_btns = ({ activeIndex }) => {
           </AnimatePresence>
         </div>
         /<span>10</span>
-        <button className="next">
+        <button name="next" className="next">
           <ChevronRightIcon className="text-2xl" />
         </button>
       </div>
@@ -473,9 +477,11 @@ const styles = {
   `),
   side_navigate_btns: [
     {
+      name: "prev",
       clas: "prev absolute z-50 h-[40%] top-1/2 -translate-y-1/2 align-middle md:w-3 lg:w-[5%] left-0",
     },
     {
+      name: "next",
       clas: "next absolute z-50 h-[40%] top-1/2 -translate-y-1/2 align-middle md:w-3 lg:w-[5%] right-0",
     },
   ],
