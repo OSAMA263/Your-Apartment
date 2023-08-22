@@ -70,7 +70,7 @@ const Header = ({ setIsOpen, isOpen }) => {
           <h1>O | K DESIGN</h1>
         </NavLink>
         <button
-          name="menu"
+          aria-label="menu"
           onClick={() => setIsOpen((prev) => !prev)}
           className={`${LinkStyled.Class} justify-self-end relative`}
         >

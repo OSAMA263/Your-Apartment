@@ -282,7 +282,7 @@ const Carousel = ({ setIsReady }) => {
         <Navigate_btns activeIndex={activeIndex} />
         {/* NAVIGAT BTNS ON THE SIDES */}
         {styles.side_navigate_btns.map((btn, i) => (
-          <button name={btn.name} key={i} className={btn.clas}></button>
+          <button aria-label={btn.name} key={i} className={btn.clas}></button>
         ))}
         {/* PROJECTS SLIDE */}
         {projects.map(({ mobile_imgs, pc_imgs, place, view }, i) => (
@@ -382,7 +382,7 @@ const Navigate_btns = ({ activeIndex }) => {
   return (
     <>
       <div className="flex gap-x-5 items-center justify-center my-[4.3rem] lg0">
-        <button name="prev" className="prev">
+        <button aria-label="prev" className="prev">
           <ChevronLeftIcon className="text-2xl" />
         </button>
         {/* CURRENT SLIDE  */}
@@ -399,7 +399,7 @@ const Navigate_btns = ({ activeIndex }) => {
           </AnimatePresence>
         </div>
         /<span>10</span>
-        <button name="next" className="next">
+        <button aria-label="next" className="next">
           <ChevronRightIcon className="text-2xl" />
         </button>
       </div>
