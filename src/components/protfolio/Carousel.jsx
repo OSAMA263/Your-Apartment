@@ -271,7 +271,7 @@ const Carousel = ({ setIsReady }) => {
       () => {
         setIsReady(true);
       },
-      onLgScreen ? 2500 : 500
+      300
     );
   }, []);
 
