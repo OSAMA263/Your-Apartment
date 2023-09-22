@@ -24,6 +24,7 @@ const ModalProject = React.memo((props) => {
       <Fade className={styles.project_viewer} in={isOpen}>
         <button
           onClick={() => setIsOpen(false)}
+          aria-label="close-modal"
           className="absolute text-3xl z-[6969] right-[6%] top-10"
         >
           <CloseIcon />

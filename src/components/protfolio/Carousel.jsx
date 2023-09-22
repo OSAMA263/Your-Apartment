@@ -33,30 +33,14 @@ const Carousel = ({ setIsReady }) => {
       nextEl: ".next",
       prevEl: ".prev",
     },
-    // ---------------------
     breakpoints: {
-      1536: {
-        speed: 2500,
-        slidesPerView: 2,
-        coverflowEffect: {
-          stretch: -450,
-          depth: 400,
-        },
-      },
-      1024: {
-        speed: 2500,
-        slidesPerView: 2,
-        coverflowEffect: {
-          stretch: -280,
-          depth: 400,
-        },
-      },
       640: {
         speed: 2500,
         slidesPerView: 2,
         allowTouchMove: false,
         coverflowEffect: {
           depth: 400,
+          stretch: -280,
         },
       },
     },
@@ -68,9 +52,12 @@ const Carousel = ({ setIsReady }) => {
     setIsOpen(true);
   };
   const images_is_ready = useCallback(() => {
-    setTimeout(() => {
-      setIsReady(true);
-    });
+    setTimeout(
+      () => {
+        setIsReady(true);
+      },
+      onLgScreen ? 2000 : 1200
+    );
   }, []);
   return (
     <>

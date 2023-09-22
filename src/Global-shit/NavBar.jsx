@@ -150,7 +150,6 @@ const NavLinksMenu = (props) => {
 
   return (
     <Slide direction="bottom" in={isOpen} className={styles.slide}>
-      {" "}
       <div className={styles.menu_wrapper}>
         {navlinks.map(({ url, name }, i) => (
           // OVERFLOW LINK WRAPPER
