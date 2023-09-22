@@ -97,7 +97,7 @@ const NavLinksMenu = (props) => {
     slide: ctl(`
     !z-10
     !h-full
-    !bg-[#eeeded]
+    !bg-[#c6c9cb]
     transition-all
     ease-linear
     delay-0

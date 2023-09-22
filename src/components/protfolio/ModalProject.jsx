@@ -4,10 +4,10 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { CloseIcon } from "@chakra-ui/icons";
+import { projects } from "./data";
 
 const ModalProject = React.memo((props) => {
-  const { displayedProject, isOpen, setIsOpen, smallDevice } = props;
-
+  const { projectInd, isOpen, setIsOpen } = props;
   const styles = {
     project_viewer: ctl(`
     absolute
@@ -19,13 +19,6 @@ const ModalProject = React.memo((props) => {
     ${isOpen ? "z-[6969]" : ""}
   `),
   };
-
-  const swiper_variants = {
-    centeredSlides: true,
-    slidesPerView: 1,
-    grabCursor: true,
-  };
-
   return (
     <>
       <Fade className={styles.project_viewer} in={isOpen}>
@@ -41,10 +34,30 @@ const ModalProject = React.memo((props) => {
             isOpen && "cursor-grab"
           } lg:w-2/5 sm:w-[70%] h-full flex justify-center`}
         >
-
+          {projects.map((src, i) => (
+            <SwiperSlide key={i}>
+              <picture>
+                <source
+                  media="(max-width:645px )"
+                  srcSet={projects[projectInd].mobile_imgs[i]}
+                />
+                <img
+                  src={projects[projectInd].pc_imgs[i]}
+                  className="w-full h-full"
+                  alt={"img" + i}
+                />
+              </picture>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </Fade>
     </>
   );
 });
+
+const swiper_variants = {
+  centeredSlides: true,
+  slidesPerView: 1,
+  grabCursor: true,
+};
 export default ModalProject;

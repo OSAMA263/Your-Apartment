@@ -3,18 +3,8 @@ import Carousel from "../protfolio/Carousel";
 import RouterAnimate from "../../Global-shit/RouterAnimate";
 import Loader from "../protfolio/Loader";
 import { useState } from "react";
-const Protfolio=()=> {
+const Protfolio = () => {
   const [isReady, setIsReady] = useState(false);
-
-  const styles = {
-    swiper_wrapper: ctl(`
-    h-screen
-    flex 
-    justify-center
-    items-center
-    `),
-  };
-
   return (
     <>
       <Loader isReady={isReady} />
@@ -25,5 +15,13 @@ const Protfolio=()=> {
       </RouterAnimate>
     </>
   );
-}
-export default Protfolio
+};
+const styles = {
+  swiper_wrapper: ctl(`
+  h-screen
+  flex 
+  justify-center
+  items-center
+  `),
+};
+export default Protfolio;

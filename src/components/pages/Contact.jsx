@@ -4,21 +4,6 @@ import SocialLinks from "../Contact/SocialLinks";
 import RouterAnimate from "../../Global-shit/RouterAnimate";
 
 export default function Contact() {
-  const className = ctl(`
-  container 
-  m-40
-  mx-auto 
-  px-4
-  items-center 
-  grid
-  lg:grid-cols-2
-  lg:grid-rows-1
-  lg:justify-around 
-  grid-rows-2
-  gap-y-10
-  xl:gap-x-52
-  `);
-
   return (
     <RouterAnimate>
       <div className={className}>
@@ -28,3 +13,17 @@ export default function Contact() {
     </RouterAnimate>
   );
 }
+const className = ctl(`
+container 
+m-40
+mx-auto 
+px-4
+items-center 
+grid
+lg:grid-cols-2
+lg:grid-rows-1
+lg:justify-around 
+grid-rows-2
+gap-y-10
+xl:gap-x-52
+`);

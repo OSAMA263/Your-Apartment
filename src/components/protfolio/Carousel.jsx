@@ -9,158 +9,13 @@ import ModalProject from "./ModalProject";
 import useToggle from "../../hooks/useToggle";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useMediaQuery } from "@uidotdev/usehooks";
+import { projects } from "./data";
 
 const Carousel = ({ setIsReady }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [displayedProject, setDisplayedProject] = useState({});
+  const [projectInd, setProjectInd] = useState(0);
   const [isOpen, setIsOpen] = useToggle();
   const onLgScreen = useMediaQuery("(min-width:640px)");
-
-  const projects = [
-    {
-      place: "Chelsea Apartment",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/Chelsea-Apartment-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/Chelsea-Apartment-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/Chelsea-Apartment-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/Chelsea-Apartment-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/Chelsea-Apartment-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/Chelsea-Apartment-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-    },
-    {
-      place: "London Townhouse",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413j.webp",
-        "swiper/pc/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413d.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413j.webp",
-        "swiper/mobile/zhOuTbHQ_dbf8d6a38dd21a4600d81f78eddca413d.webp",
-      ],
-    },
-
-    {
-      place: "Soho Loft, New York",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/NY_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/NY.3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/NY.5_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/NY_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/NY.3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/NY.5_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-    },
-    {
-      place: "Marine",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/Marine-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/Marine-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/Marine-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/Marine-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/Marine-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/Marine-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-    },
-    {
-      place: "London Townhouse",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/London-Townhouse-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/London-Townhouse-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/London-Townhouse-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/London-Townhouse-1_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/London-Townhouse-3_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/London-Townhouse-2_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-    },
-
-    {
-      place: "The Blonde Hedgehog",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4134.webp",
-        "swiper/pc/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4131.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4134.webp",
-        "swiper/mobile/Bryanston-Square12106_dbf8d6a38dd21a4600d81f78eddca4131.webp",
-      ],
-    },
-    {
-      place: "Dubai",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/51A6412_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/51A5998flat_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/51A6161_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/51A6412_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/51A5998flat_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/51A6161_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-    },
-    {
-      place: "Notting Hill Family Home",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/Guest-Bath_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/Bathroom_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/Bedroom_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/Guest-Bath_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/Bathroom_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/Bedroom_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-    },
-    {
-      place: "Aviation",
-      view: true,
-      pc_imgs: [
-        "swiper/pc/2-Mato-6106_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/pc/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413as.webp",
-        "swiper/pc/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/2-Mato-6106_dbf8d6a38dd21a4600d81f78eddca413.webp",
-        "swiper/mobile/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413as.webp",
-        "swiper/mobile/2-Mato-6177_dbf8d6a38dd21a4600d81f78eddca413.webp",
-      ],
-    },
-    {
-      place: "Soho Penthouse, New York",
-      view: false,
-      pc_imgs: [
-        "swiper/pc/Soho-Loft-Apartment-New-York-1_41e3d52726a6919d0b92ccd3a3c821d5.webp",
-        "swiper/pc/Soho-Loft-Apartment-New-York-2_41e3d52726a6919d0b92ccd3a3c821d5.webp",
-        "swiper/pc/Soho-Loft-Apartment-New-York-3_41e3d52726a6919d0b92ccd3a3c821d5.webp",
-      ],
-      mobile_imgs: [
-        "swiper/mobile/Soho-Loft-Apartment-New-York-1_41e3d52726a6919d0b92ccd3a3c821d5.webp",
-        "swiper/mobile/Soho-Loft-Apartment-New-York-2_41e3d52726a6919d0b92ccd3a3c821d5.webp",
-        "swiper/mobile/Soho-Loft-Apartment-New-York-3_41e3d52726a6919d0b92ccd3a3c821d5.webp",
-      ],
-    },
-  ];
-
   const swiper_props = {
     allowTouchMove: true,
     slidesPerView: 1,
@@ -208,73 +63,15 @@ const Carousel = ({ setIsReady }) => {
     onTransitionStart: (e) => setActiveIndex(e.realIndex),
     modules: [Navigation, EffectCoverflow],
   };
-
-  const variants = {
-    L_img_variant: {
-      initial: {
-        x: 0,
-        y: 0,
-      },
-      animate: (i) => ({
-        x: i === activeIndex ? -100 : 0,
-        y: i === activeIndex ? 90 : 0,
-        rotate: i === activeIndex ? 4 : 0,
-        transition: {
-          delay: i === activeIndex ? 2.4 : 0,
-          duration: 0.7,
-        },
-      }),
-    },
-
-    R_img_variant: {
-      initial: {
-        x: 0,
-        y: 0,
-      },
-      animate: (i) => ({
-        x: i === activeIndex ? 200 : 0,
-        y: i === activeIndex ? -90 : 0,
-        rotate: i === activeIndex ? -5 : 0,
-        transition: {
-          delay: i === activeIndex ? 2.4 : 0,
-          duration: 0.7,
-        },
-      }),
-    },
-    project_details: {
-      initial: {
-        y: 160,
-        opacity: 0,
-      },
-      animate: (i) => ({
-        y: activeIndex !== i ? 160 : 0,
-        opacity: i === activeIndex ? 1 : 0,
-        transition: {
-          delay: i === activeIndex ? 2.5 : 0,
-          duration: 0.7,
-        },
-      }),
-    },
-    init_animate: { animate: "animate", initial: "initial" },
+  const modal_handler = (i) => {
+    setProjectInd(i);
+    setIsOpen(true);
   };
-
-  const modal_handler = useCallback(
-    (i) => {
-      setDisplayedProject(projects[i]);
-      setIsOpen(true);
-    },
-    [displayedProject, isOpen]
-  );
-
   const images_is_ready = useCallback(() => {
-    setTimeout(
-      () => {
-        setIsReady(true);
-      },
-      300
-    );
+    setTimeout(() => {
+      setIsReady(true);
+    });
   }, []);
-
   return (
     <>
       <Swiper {...swiper_props} className={styles.swiper}>
@@ -288,13 +85,12 @@ const Carousel = ({ setIsReady }) => {
         {projects.map(({ mobile_imgs, pc_imgs, place, view }, i) => (
           <SwiperSlide className="flex items-center" key={i}>
             <div className={styles.project_wrapper}>
-              <picture
-                className="relative"
-                onLoad={images_is_ready}
-                onClick={() => modal_handler(i)}
-              >
+              <picture className="relative">
                 <source srcSet={mobile_imgs[0]} media="(max-width:645px)" />
                 <img
+                  // i think we put it here + make the images smaller bruv
+                  onLoad={images_is_ready}
+                  onClick={() => modal_handler(i)}
                   className={styles.centerd_img}
                   alt="img1"
                   src={pc_imgs[0]}
@@ -305,7 +101,7 @@ const Carousel = ({ setIsReady }) => {
                   <motion.img
                     src={pc_imgs[1]}
                     alt="img2"
-                    custom={i}
+                    custom={{ i, activeIndex }}
                     loading="lazy"
                     {...variants.init_animate}
                     variants={onLgScreen && variants.L_img_variant}
@@ -314,7 +110,7 @@ const Carousel = ({ setIsReady }) => {
                   <motion.img
                     src={pc_imgs[2]}
                     alt="img3"
-                    custom={i}
+                    custom={{ i, activeIndex }}
                     loading="lazy"
                     {...variants.init_animate}
                     variants={onLgScreen && variants.R_img_variant}
@@ -328,7 +124,7 @@ const Carousel = ({ setIsReady }) => {
                   <motion.h1
                     {...variants.init_animate}
                     variants={variants.project_details}
-                    custom={i}
+                    custom={{ i, activeIndex }}
                   >
                     {place}
                   </motion.h1>
@@ -338,7 +134,7 @@ const Carousel = ({ setIsReady }) => {
                   <motion.button
                     {...variants.init_animate}
                     variants={variants.project_details}
-                    custom={i}
+                    custom={{ i, activeIndex }}
                     onClick={() => modal_handler(i)}
                     disabled={!view}
                     className={view ? LinkStyled.Class : ""}
@@ -353,9 +149,57 @@ const Carousel = ({ setIsReady }) => {
         ))}
       </Swiper>
       {/* VIEW PROJECT MODAL */}
-      <ModalProject {...{ displayedProject, isOpen, setIsOpen, onLgScreen }} />
+      <ModalProject {...{ projectInd, isOpen, setIsOpen, onLgScreen }} />
     </>
   );
+};
+const variants = {
+  L_img_variant: {
+    initial: {
+      x: 0,
+      y: 0,
+    },
+    animate: ({ i, activeIndex }) => ({
+      x: i === activeIndex ? -100 : 0,
+      y: i === activeIndex ? 90 : 0,
+      rotate: i === activeIndex ? 4 : 0,
+      transition: {
+        delay: i === activeIndex ? 2.4 : 0,
+        duration: 0.7,
+      },
+    }),
+  },
+
+  R_img_variant: {
+    initial: {
+      x: 0,
+      y: 0,
+    },
+    animate: ({ i, activeIndex }) => ({
+      x: i === activeIndex ? 200 : 0,
+      y: i === activeIndex ? -90 : 0,
+      rotate: i === activeIndex ? -5 : 0,
+      transition: {
+        delay: i === activeIndex ? 2.4 : 0,
+        duration: 0.7,
+      },
+    }),
+  },
+  project_details: {
+    initial: {
+      y: 160,
+      opacity: 0,
+    },
+    animate: ({ i, activeIndex }) => ({
+      y: activeIndex !== i ? 160 : 0,
+      opacity: i === activeIndex ? 1 : 0,
+      transition: {
+        delay: i === activeIndex ? 2.5 : 0,
+        duration: 0.7,
+      },
+    }),
+  },
+  init_animate: { animate: "animate", initial: "initial" },
 };
 // -----------------------
 const Navigate_btns = ({ activeIndex }) => {
@@ -486,4 +330,5 @@ const styles = {
     },
   ],
 };
+
 export default React.memo(Carousel);

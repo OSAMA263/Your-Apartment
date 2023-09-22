@@ -15,7 +15,7 @@ const Loader = ({ isReady }) => {
     overflow-hidden
     transition-all
     duration-[1s]
-    delay-[2.8s] 
+    delay-1000
     ${isReady && "!h-[0vh]"}
     `),
     progress: ctl(`
@@ -30,10 +30,10 @@ const Loader = ({ isReady }) => {
     items-center 
     justify-center 
     h-full 
-    bg-gray-200
+    bg-[#c6c9cb]
     transition-all 
     duration-1000
-    delay-[2s]
+    delay-300
     ${isReady && "sm:-translate-x-1/3"}
     `),
     img: ctl(`

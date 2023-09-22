@@ -66,7 +66,7 @@ const Form = () => {
 
   return (
     <>
-      <form onSubmit={handle_submit} className="md:space-y-8 space-y-4">
+      <form onSubmit={handle_submit} className="space-y-4 md:space-y-8">
         <h1 className={styles.onsubmit_text}>
           Thank you for submitting your details, we will be in touch shortly.
         </h1>
@@ -99,7 +99,7 @@ const Form = () => {
           By submitting this form I accept the
           <NavLink
             to="/privacy-policy"
-            className="mx-1 border-b-2 border-black font-bold"
+            className="mx-1 font-bold border-b-2 border-black"
           >
             Privacy Policy
           </NavLink>

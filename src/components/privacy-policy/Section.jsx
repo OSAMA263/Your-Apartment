@@ -4,69 +4,6 @@ import { Fragment } from "react";
 import RevealElements from "../../Global-shit/RevealElements";
 
 const Section = ({ data }) => {
-  const end_data = [
-    {
-      h1: "Data Security",
-      p: " Charlie Horner Design is governed by the data protection laws in the United Kingdom and takes all reasonable precautions to keep your personal information secure.",
-    },
-    {
-      h1: "Updates to this policy:",
-      p: "We reserve our right to update this Privacy Policy at Any changes we may make to our Privacy Policy will be updated to this page and it is your obligation to regularly check these terms and this policy to satisfy yourself as to the current position.",
-    },
-  ];
-
-  const styles = {
-    section: ctl(`
-    border-t-2
-    border-gray-300
-    flex
-    flex-col
-    pt-28
-    space-y-12
-    items-center
-    mx-auto 
-    text-center 
-    [word-spacing:4px] 
-    tracking-wider
-    xl:w-1/2 
-    w-[80%]
-    `),
-    // -----------------
-    h1: ctl(`
-    xl:text-6xl
-    md:text-5xl 
-    text-3xl
-    font-semibold
-    `),
-    // -----------------
-    text_wrapper: ctl(`
-    leading-loose 
-    space-y-8
-    md:text-2xl
-    text-lg
-    `),
-    // -----------------
-    list_wapper: ctl(`
-    leading-relaxed 
-    md:text-2xl 
-    text-lg
-    space-y-8
-    `),
-    // -----------------
-    last_content: ctl(`
-    mx-auto 
-    text-2xl
-    text-center 
-    flex 
-    flex-col 
-    gap-y-8 
-    pb-32
-    xl:w-1/2 
-    w-[80%]
-    `),
-    // ----------------
-  };
-
   return (
     <>
       <div className="bg-[#e3e3e7] mt-10 space-y-28">
@@ -119,6 +56,64 @@ const Section = ({ data }) => {
       </div>
     </>
   );
+};
+const end_data = [
+  {
+    h1: "Data Security",
+    p: " Charlie Horner Design is governed by the data protection laws in the United Kingdom and takes all reasonable precautions to keep your personal information secure.",
+  },
+  {
+    h1: "Updates to this policy:",
+    p: "We reserve our right to update this Privacy Policy at Any changes we may make to our Privacy Policy will be updated to this page and it is your obligation to regularly check these terms and this policy to satisfy yourself as to the current position.",
+  },
+];
+
+const styles = {
+  section: ctl(`
+  border-t-2
+  border-gray-300
+  flex
+  flex-col
+  pt-28
+  space-y-12
+  items-center
+  mx-auto 
+  text-center 
+  [word-spacing:4px] 
+  tracking-wider
+  xl:w-1/2 
+  w-[80%]
+  `),
+  h1: ctl(`
+  xl:text-6xl
+  md:text-5xl 
+  text-3xl
+  font-semibold
+  `),
+  text_wrapper: ctl(`
+  leading-loose 
+  space-y-8
+  md:text-2xl
+  text-lg
+  `),
+  list_wapper: ctl(`
+  leading-relaxed 
+  md:text-2xl 
+  text-lg
+  space-y-8
+  `),
+  last_content: ctl(`
+  mx-auto 
+  text-2xl
+  text-center 
+  flex 
+  flex-col 
+  gap-y-8 
+  pb-32
+  xl:w-1/2 
+  w-[80%]
+  `),
+  // ----------------
 };
 
 export default Section;
