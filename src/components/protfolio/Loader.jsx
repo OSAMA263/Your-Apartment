@@ -53,6 +53,7 @@ const Loader = ({ isReady }) => {
         className={styles.progress}
         size="xs"
         isIndeterminate={!isReady}
+         aria-label="progress-bar"
         role="progressbar"
       />
       <section className={styles.hero_section}>
