@@ -41,15 +41,7 @@ const ModalProject = React.memo((props) => {
             isOpen && "cursor-grab"
           } lg:w-2/5 sm:w-[70%] h-full flex justify-center`}
         >
-          {displayedProject.pc_imgs &&
-            (smallDevice
-              ? displayedProject.pc_imgs
-              : displayedProject.mobile_imgs
-            ).map((src, i) => (
-              <SwiperSlide key={i}>
-                <img src={src} className="w-full h-full" alt="" />
-              </SwiperSlide>
-            ))}
+
         </Swiper>
       </Fade>
     </>
