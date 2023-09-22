@@ -52,11 +52,9 @@ const Carousel = ({ setIsReady }) => {
     setIsOpen(true);
   };
   const images_is_ready = useCallback(() => {
-    setTimeout(
-      () => {
-        setIsReady(true);
-      },
-      onLgScreen ? 2000 : 1200
+    setTimeout(() => {
+      setIsReady(true);
+    }, onLgScreen ? 2000 : 1200
     );
   }, []);
   return (
