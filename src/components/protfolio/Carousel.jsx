@@ -70,7 +70,7 @@ const Carousel = ({ setIsReady }) => {
   const images_is_ready = useCallback(() => {
     setTimeout(() => {
       setIsReady(true);
-    }onLgScreen?1100:500);
+    },onLgScreen?1100:500);
   }, []);
   return (
     <>
