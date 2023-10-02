@@ -87,7 +87,7 @@ const NavLinksMenu = (props) => {
   const isOpen = props.isOpen;
 
   const navlinks = [
-    { url: "/", name: "Protfolio" },
+    { url: "/", name: "Portfolio" },
     { url: "/about-us", name: "About Us" },
     { url: "/contact", name: "Contact Us" },
   ];
