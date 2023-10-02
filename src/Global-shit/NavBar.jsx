@@ -92,7 +92,7 @@ const NavLinksMenu = (props) => {
     { url: "/contact", name: "Contact Us" },
   ];
 
-  // -----style classes
+  // -----style classes-----
   const styles = {
     slide: ctl(`
     !z-10
