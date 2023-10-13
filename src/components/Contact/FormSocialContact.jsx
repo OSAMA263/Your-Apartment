@@ -84,7 +84,7 @@ const Form = () => {
           </FormControl>
         ))}
         <FormControl className="flex flex-col">
-          <FormLabel htmlFor="massage">Massage</FormLabel>
+          <FormLabel htmlFor="massage">Message</FormLabel>
           <textarea
             required
             ref={(ele) => (inputsRefs.current[69] = ele)}
