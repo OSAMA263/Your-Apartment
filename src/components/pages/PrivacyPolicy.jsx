@@ -28,7 +28,7 @@ const data = [
       "We only hold your data for as long as necessary.",
       "We apply appropriate security mechanisms to protect your personal data.",
     ],
-    link: "example@exampleQ&A123.com",
+    link: "osamaelseify2@gmail.com",
   },
   {
     header: "What information do we collect about you?",
