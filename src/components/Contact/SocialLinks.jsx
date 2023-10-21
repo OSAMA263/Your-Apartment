@@ -37,7 +37,7 @@ const styles = {
 };
 
 const SOCIAL_LINKS = [
-  { label: "Email Address", link: "example@example123.com" },
+  { label: "Email Address", link: "osamaelseify2@gmail.com" },
   { label: "Social", link: "Instagram" },
 ];
 
